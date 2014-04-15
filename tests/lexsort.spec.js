@@ -29,4 +29,21 @@ describe('lexsort', function () {
 			done();
 		});
 	});
+
+	it('can accept user defined articles to ignore', function () {
+		expect(lexsort.getArticles()).toEqual(['a', 'an', 'the']);
+		lexsort.setArticles(['a', 'an', 'the', 'y', 'yr', 'na']);
+		expect(lexsort.getArticles()).toEqual(['a', 'an', 'the', 'y', 'yr', 'na']);
+	});
+
+	it('uses user defined articles', function (done) {
+		lexsort.sort(['y zebra', 'yr aardvark', 'na monkey'], function(result) {
+			expect(result).toEqual([
+				'yr aardvark',
+				'na monkey',
+				'y zebra'
+			]);
+			done();
+		});
+	})
 });

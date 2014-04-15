@@ -3,15 +3,26 @@ if (typeof define !== 'function') {
 }
 
 define(function(require) {
-	var removeThe = function(string) {
-		return string.replace(/^(a|an|the) (.*)/gi, '$2');
-	}
+	var removeArticles = function(string) {
+			var regex = new RegExp(
+				'^(' + articles.join('|') + ') (.*)', 'gi'
+			);
+			return string.replace(regex, '$2');
+		},
+		articles = ['a', 'an', 'the'];
+
 	return {
+		getArticles: function () {
+			return articles;
+		},
+		setArticles: function (values) {
+			articles = values;
+		},
 		sort: function(strings, callback) {
 			var result = strings.sort(function(a, b) {
-				if (removeThe(a) < removeThe(b)) {
+				if (removeArticles(a) < removeArticles(b)) {
 					return -1;
-				} else if(removeThe(a) === removeThe(b)) {
+				} else if(removeArticles(a) === removeArticles(b)) {
 					return 0;
 				}
 				return 1;
