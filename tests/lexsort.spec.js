@@ -18,4 +18,15 @@ describe('lexsort', function () {
 			done();
 		});
 	});
+
+	it('can ignore all articles in english', function (done) {
+		lexsort.sort(['the zebra', 'an aardvark', 'a monkey'], function(result) {
+			expect(result).toEqual([
+				'an aardvark',
+				'a monkey',
+				'the zebra'
+			]);
+			done();
+		});
+	});
 });

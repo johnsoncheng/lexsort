@@ -4,7 +4,7 @@ if (typeof define !== 'function') {
 
 define(function(require) {
 	var removeThe = function(string) {
-		return string.replace(/^the (.*)/gi, '$1');
+		return string.replace(/^(a|an|the) (.*)/gi, '$2');
 	}
 	return {
 		sort: function(strings, callback) {
