@@ -1,14 +1,18 @@
 {
   "name": "lexsort",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Sort sentences alphabetically, taking into account definite and indefinite articles.",
   "main": "lexsort.js",
   "scripts": {
     "test": "jasmine-node tests --color --captureExceptions"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/middric/lexsort"
+  },
   "author": "Rich Middleditch",
   "license": "MIT",
   "dependencies": {
-  	"amdefine": ">=0.1.0"
+    "amdefine": ">=0.1.0"
   }
 }
