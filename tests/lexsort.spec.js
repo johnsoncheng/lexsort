@@ -12,7 +12,7 @@ describe('lexsort', function () {
 		lexsort.sort(['the zebra', 'the aardvark', 'monkey'], function(result) {
 			expect(result).toEqual([
 				'the aardvark',
-				'the monkey',
+				'monkey',
 				'the zebra'
 			]);
 			done();
