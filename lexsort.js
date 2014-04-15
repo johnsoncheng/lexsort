@@ -22,7 +22,7 @@ define(function(require) {
 			articles = values;
 			articleRegex = null;
 		},
-		sort: function(strings, callback) {
+		sort: function(strings) {
 			var result = strings.sort(function(a, b) {
 				var cleanA = removeArticles(a),
 					cleanB = removeArticles(b);
@@ -35,7 +35,7 @@ define(function(require) {
 				return 1;
 			});
 
-			callback(result);
+			return result;
 		}
 	};
 });
