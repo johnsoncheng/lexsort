@@ -7,4 +7,15 @@ describe('lexsort', function () {
 			done();
 		});
 	});
+
+	it('can sort ignoring "the"', function (done) {
+		lexsort.sort(['the zebra', 'the aardvark', 'monkey'], function(result) {
+			expect(result).toEqual([
+				'the aardvark',
+				'the monkey',
+				'the zebra'
+			]);
+			done();
+		});
+	});
 });
